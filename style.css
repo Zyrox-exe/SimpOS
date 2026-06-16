@@ -1,0 +1,52 @@
+body{
+    font-family: Helvetica, sans-serif;
+    background-image: url("./images/simpleWallpaper.jpg");
+    background-size:200vh;
+    margin: 0;
+    padding: 0;
+}
+
+#infoContainer{
+    background-color: antiquewhite;
+    border: solid;
+    border-radius: 12px;
+    width: fit-content;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#myImg{
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}
+#topBar{
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+#barTitle{
+    margin-left: 16px;
+    background: rgba(128, 128, 128, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+#barStatus{
+    margin-right: auto;
+    margin-left: auto;
+    background: rgba(128, 128, 128, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+}
+#barDateAndTime{
+    padding: 3px;
+    background: rgba(128, 128, 128, 0.5);
+    backdrop-filter: blur(5px);
+    margin-left: auto;
+    border-radius: 8px;
+}
