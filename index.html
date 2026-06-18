@@ -1,31 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simp OS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="topBar">
       <p id="barTitle">SimpOS</p>
-      <p id="barStatus">Status: Experimenting🔬</p>
       <p id="barDateAndTime">6/16/2026 4:21</p>
     </div>
     <div id="infoContainer">
-      <img id="myImg" src="./images/myCatPfp.jpg">
-      <h1>SimpOS</h1>
-      <p>
-        <dfn>SimpOS</dfn> is a minimalist retro style web <abbr title="Operating System">OS</abbr> made<br> to make life easier and show the skills of its Creator.
+      <div class="closeContainer" id="welcomeHeader">
+        <pre></pre>
+        <p style="margin: 0px">Welcome!</p>
+        <p class="windowClose"><i class="fa-solid fa-xmark"></i></p>
+      </div>
+      <!-- <img id="myImg" src="./images/myCatPfp.jpg"/> -->
+      <div id="picTitle">
+        <img id="myImg" src="./images/myCatPfp.jpg" />
+        <h1>SimpOS</h1>
+      </div>
+      <p style="margin-top: 0px">
+        <dfn>SimpOS</dfn> is a minimalist retro style web
+        <abbr title="Operating System">OS</abbr> made<br />
+        to make life easier and show the skills of its Creator.
       </p>
     </div>
-    <script>
-      function updateTime() {
-        var currentTime = new Date().toLocaleString();
-        var timeText = document.querySelector("#barDateAndTime");
-        timeText.innerHTML = currentTime;
-    }
-    setInterval(updateTime, 1000)
-    </script>
+    <script
+      src="https://kit.fontawesome.com/e6345fe8ab.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
   </body>
 </html>
