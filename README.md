@@ -25,7 +25,7 @@ A minimalist, retro-style web operating system designed for simplicity, efficien
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/SimpOS.git](https://github.com/yourusername/SimpOS.git)
+   git clone https://github.com/Zyrox-exe/SimpOS.git
    ```
 2. **Open Locally:**
 Simply open `index.html` in any modern web browser to view the desktop.
