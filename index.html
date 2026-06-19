@@ -11,14 +11,36 @@
       <p id="barTitle">SimpOS</p>
       <p id="barDateAndTime">6/16/2026 4:21</p>
     </div>
-    <div id="infoContainer">
-      <div class="closeContainer" id="welcomeHeader">
-        <pre></pre>
-        <p style="margin: 0px">Welcome!</p>
-        <p class="windowClose"><i class="fa-solid fa-xmark"></i></p>
+    <div id="desktopApps">
+      <div class="appDiv" id="about">
+        <i class="fa-solid fa-circle-info desktopIcon"></i>
+        <p>About</p>
       </div>
-      <!-- <img id="myImg" src="./images/myCatPfp.jpg"/> -->
-      <div id="picTitle">
+      <div class="appDiv" id="notes">
+        <i class="fa-solid fa-clipboard-list desktopIcon"></i>
+        <p>Notes</p>
+      </div>
+      <div class="appDiv" id="terminal">
+        <i class="fa-solid fa-code desktopIcon"></i>
+        <p>Terminal</p>
+      </div>
+      <div class="appDiv" id="wikipedia">
+        <i class="fa-brands fa-wikipedia-w desktopIcon"></i>
+        <p>Wikipedia</p>
+      </div>
+      <div class="appDiv" id="music">
+        <i class="fa-brands fa-itunes-note desktopIcon"></i>
+        <p>Music</p>
+      </div>
+    </div>
+    <div id="welcome" class="window">
+      <div class="windowHeader" id="welcomeHeader">
+        <pre></pre>
+        <p style="margin: 0px;margin-top: 4px;">Welcome!</p>
+        <div class="windowClose"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
+      <div id="picAndTitle" style="display: flex;">
         <img id="myImg" src="./images/myCatPfp.jpg" />
         <h1>SimpOS</h1>
       </div>

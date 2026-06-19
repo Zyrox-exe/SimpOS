@@ -6,7 +6,7 @@ function updateTime() {
 setInterval(updateTime, 1000);
 
 // Make the DIV element draggable:
-dragElement(document.getElementById("infoContainer"));
+dragElement(document.getElementById("welcome"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -59,7 +59,7 @@ function dragElement(element) {
     document.onmousemove = null;
   }
 }
-var welcomeScreen = document.querySelector("#infoContainer");
+var welcomeScreen = document.querySelector("#welcome");
 function closeWindow(element) {
   element.style.display = "none";
 }
@@ -76,3 +76,24 @@ welcomeScreenClose.addEventListener("click", function () {
 welcomeScreenOpen.addEventListener("click", function () {
   openWindow(welcomeScreen);
 });
+
+var slectedIcon = undefined;
+
+function selectIcon(element) {
+  element.classList.add("selected");
+  selectedIcon = element
+}
+
+function deselectIcon(element) {
+  element.classList.remove("selected");
+  selectedIcon = undefined
+}
+
+function handleIconTap(element) {
+  if (element.classList.contains("selected")) {
+    deselectIcon(element)
+    openWindow(window)
+  } else {
+    selectIcon(element)
+  }
+}
