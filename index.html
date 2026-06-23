@@ -12,11 +12,11 @@
       <p id="barDateAndTime">6/16/2026 4:21</p>
     </div>
     <div id="desktopApps">
-      <div class="appDiv" id="about">
+      <div class="appDiv" id="aboutIcon">
         <i class="fa-solid fa-circle-info desktopIcon"></i>
         <p>About</p>
       </div>
-      <div class="appDiv" id="notes">
+      <div class="appDiv" id="notesIcon">
         <i class="fa-solid fa-clipboard-list desktopIcon"></i>
         <p>Notes</p>
       </div>
@@ -24,20 +24,20 @@
         <i class="fa-solid fa-code desktopIcon"></i>
         <p>Terminal</p>
       </div>
-      <div class="appDiv" id="wikipedia">
+      <div class="appDiv" id="wikipediaIcon">
         <i class="fa-brands fa-wikipedia-w desktopIcon"></i>
         <p>Wikipedia</p>
       </div>
-      <div class="appDiv" id="music">
+      <div class="appDiv" id="musicIcon">
         <i class="fa-brands fa-itunes-note desktopIcon"></i>
         <p>Music</p>
       </div>
     </div>
     <div id="welcome" class="window">
-      <div class="windowHeader" id="welcomeHeader">
+      <div id="welcomeHeader" class="windowHeader" >
         <pre></pre>
         <p style="margin: 0px;margin-top: 4px;">Welcome!</p>
-        <div class="windowClose"><i class="fa-solid fa-xmark"></i></div>
+        <div id="welcomeClose" class="windowClose"><i class="fa-solid fa-xmark"></i></div>
       </div>
       <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
       <div id="picAndTitle" style="display: flex;">
@@ -49,6 +49,19 @@
         <abbr title="Operating System">OS</abbr> made<br />
         to make life easier and show the skills of its Creator.
       </p>
+    </div>
+    <div id="about" class="window">
+      <div id="aboutHeader" class="windowHeader">
+        <pre>   </pre>
+        <p style="margin: 0px;margin-top: 4px;">About Me</p>
+        <div id="aboutClose" class="windowClose"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
+      <br>
+      <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <img id="myImg" src="./images/myCatPfp.jpg" />
+        <p>Hello, I am Sadiq!!</p>
+      </div>
     </div>
     <script
       src="https://kit.fontawesome.com/e6345fe8ab.js"

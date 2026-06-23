@@ -7,6 +7,7 @@ setInterval(updateTime, 1000);
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
+dragElement(document.getElementById("about"));
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -60,22 +61,35 @@ function dragElement(element) {
   }
 }
 var welcomeScreen = document.querySelector("#welcome");
+var aboutScreen = document.querySelector("#about");
+// var welcomeScreen = document.querySelector("#notes");
+// var welcomeScreen = document.querySelector("#terminal");
+// var welcomeScreen = document.querySelector("#wikipedia");
+
 function closeWindow(element) {
   element.style.display = "none";
 }
 function openWindow(element) {
   element.style.display = "block";
 }
-var welcomeScreenClose = document.querySelector(".windowClose");
 
 var welcomeScreenOpen = document.querySelector("#barTitle");
-welcomeScreenClose.addEventListener("click", function () {
-  closeWindow(welcomeScreen);
-});
+var welcomeScreenClose = document.querySelector("#welcomeClose");
 
 welcomeScreenOpen.addEventListener("click", function () {
   openWindow(welcomeScreen);
 });
+welcomeScreenClose.addEventListener("click", function () {
+  closeWindow(welcomeScreen);
+});
+
+var aboutScreenOpen = document.querySelector("#aboutIcon");
+var aboutScreenClose = document.querySelector("#aboutClose");
+
+aboutScreenOpen.addEventListener("click", function () {
+  openWindow(aboutScreen);
+});
+aboutScreenClose.addEventListener("click", () => closeWindow(aboutScreen));
 
 var slectedIcon = undefined;
 
