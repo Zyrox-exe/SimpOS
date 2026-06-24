@@ -1,5 +1,5 @@
 body {
-  font-family: "JetBrains Mono", Helvetica, sans-serif;
+  font-family: Times New Roman, Helvetica, sans-serif;
   background-position: center;
   background: url("./images/lycoris-recoil.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -26,7 +26,7 @@ body {
 #about {
   display: none;
   /* height: 155px; */
-  width: 393px;
+  width: 330px;
   position: fixed;
   background-color: antiquewhite;
   backdrop-filter: blur(5px);
@@ -55,7 +55,7 @@ body {
   backdrop-filter: blur(10px);
   border-radius: 20px;
 }
-#barTitle , #barDateAndTime{
+#welcomeIcon , #barDateAndTime{
   background: antiquewhite;
   backdrop-filter: blur(5px);
   padding-left: 2px;
@@ -64,7 +64,7 @@ body {
   border-style: solid;
   border-width: 2px;
 }
-#barTitle {
+#welcomeIcon {
   cursor: pointer;
   margin-left: 16px; 
 }
@@ -127,14 +127,17 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
+.appdiv:hover{
+  background-color: rgb(135, 207, 235);
+}
 .desktopIcon {
   justify-self: center;
   margin-top: 4px;
 }
 
 .selected{
-  background-color: rgba(0, 183, 255, 0.212);
-  border: grey dashed 2px;
+  background-color: rgba(0, 183, 255, 0.411);
+  outline: solid 2px transparent;
 }
 .hidden{
   display: none;

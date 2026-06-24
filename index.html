@@ -8,27 +8,27 @@
   </head>
   <body>
     <div id="topBar">
-      <p id="barTitle">SimpOS</p>
+      <p id="welcomeIcon">SimpOS</p>
       <p id="barDateAndTime">6/16/2026 4:21</p>
     </div>
     <div id="desktopApps">
-      <div class="appDiv" id="aboutIcon">
+      <div class="appDiv" id="aboutIcon" onclick="handleIconTap(this)">
         <img class="desktopIcon" src="/images/About.png">
         <p class="appTitle">About</p>
       </div>
-      <div class="appDiv" id="notesIcon">
+      <div class="appDiv" id="notesIcon" onclick="handleIconTap(this)">
         <img class="desktopIcon" src="/images/note.png">
         <p class="appTitle">Notes</p>
       </div>
-      <div class="appDiv" id="terminal">
+      <div class="appDiv" id="terminalIcon" onclick="handleIconTap(this)">
         <img class="desktopIcon" src="/images/terminal.png">
         <p class="appTitle">Terminal</p>
       </div>
-      <div class="appDiv" id="wikipediaIcon">
+      <div class="appDiv" id="wikipediaIcon" onclick="handleIconTap(this)">
         <img class="desktopIcon" src="/images/Wikipedia.png">
         <p class="appTitle">Wikipedia</p>
       </div>
-      <div class="appDiv" id="musicIcon">
+      <div class="appDiv" id="musicIcon" onclick="handleIconTap(this)">
         <img class="desktopIcon" src="/images/music.png">
         <p class="appTitle">Music</p>
       </div>
@@ -38,7 +38,7 @@
         <div id="welcomeHeader" class="windowHeader" >
           <pre></pre>
           <p style="margin: 0px;margin-top: 4px;">Welcome!</p>
-          <div id="welcomeClose" class="windowClose"><i class="fa-solid fa-xmark"></i></div>
+          <div id="welcomeClose" class="windowClose">X</div>
         </div>
         <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
         <div id="picAndTitle" style="display: flex;">
@@ -57,13 +57,18 @@
         <div id="aboutHeader" class="windowHeader">
           <pre>   </pre>
           <p style="margin: 0px;margin-top: 4px;">About Me</p>
-          <div id="aboutClose" class="windowClose"><i class="fa-solid fa-xmark"></i></div>
+          <div id="aboutClose" class="windowClose">X</div>
         </div>
         <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
         <br>
         <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
           <img id="myImg" src="./images/myCatPfp.jpg" />
-          <p>Hello, I am Sadiq!!</p>
+          <p style="margin: 0px;margin-bottom: 4px;">Hello, I am Sadiq!!</p>
+          <p style="margin: 0px;margin-bottom: 4px;">An aspiring web developer from India. I am good at working in groups and very enthusiastic about leading one! I also take care of the people around me.</p>
+          <p style="margin: 0px;margin-bottom: 4px;">My tech stack includes:</p>
+          <pre style="margin: 0px;margin-bottom: 4px;">   >HTML
+   >CSS
+   >JS(learning)</pre>
         </div>
       </div>
     </div>

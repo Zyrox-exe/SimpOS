@@ -37,11 +37,11 @@ function dragElement(element) {
     initialY = e.clientY;
     // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
     document.onmouseup = stopDragging;
-    document.onmousemove = dragElement;
+    document.onmousemove = elementDrag;
   }
 
   // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
-  function dragElement(e) {
+  function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
     // Step 10: Calculate the new cursor position.
@@ -60,11 +60,12 @@ function dragElement(element) {
     document.onmousemove = null;
   }
 }
-var welcomeScreen = document.querySelector("#welcome");
-var aboutScreen = document.querySelector("#about");
+// var welcomeScreen = document.querySelector("#welcome");
+// var aboutScreen = document.querySelector("#about");
 // var welcomeScreen = document.querySelector("#notes");
 // var welcomeScreen = document.querySelector("#terminal");
 // var welcomeScreen = document.querySelector("#wikipedia");
+var selectedIcon = undefined;
 
 function closeWindow(element) {
   element.style.display = "none";
@@ -76,42 +77,49 @@ function openWindow(element) {
   topBar.style.zIndex = biggestIndex + 1;
 }
 
-var welcomeScreenOpen = document.querySelector("#barTitle");
-var welcomeScreenClose = document.querySelector("#welcomeClose");
+// var welcomeScreenOpen = document.querySelector("#welcomeIcon");
+// var welcomeScreenClose = document.querySelector("#welcomeClose");
 
-welcomeScreenOpen.addEventListener("click", function () {
-  openWindow(welcomeScreen);
-});
-welcomeScreenClose.addEventListener("click", function () {
-  closeWindow(welcomeScreen);
-});
+// welcomeScreenOpen.addEventListener("click", function () {
+//   openWindow(welcomeScreen);
+// });
+// welcomeScreenClose.addEventListener("click", function () {
+//   closeWindow(welcomeScreen);
+// });
 
-var aboutScreenOpen = document.querySelector("#aboutIcon");
-var aboutScreenClose = document.querySelector("#aboutClose");
+// var aboutScreenOpen = document.querySelector("#aboutIcon");
+// var aboutScreenClose = document.querySelector("#aboutClose");
 
-aboutScreenOpen.addEventListener("click", function () {
-  openWindow(aboutScreen);
-});
-aboutScreenClose.addEventListener("click", () => closeWindow(aboutScreen));
+// aboutScreenOpen.addEventListener("click", function () {
+//   openWindow(aboutScreen);
+// });
+// aboutScreenClose.addEventListener("click", () => closeWindow(aboutScreen));
 
-var slectedIcon = undefined;
 
 function selectIcon(element) {
+  if (selectedIcon) deselectIcon(selectedIcon);
   element.classList.add("selected");
-  selectedIcon = element
+  selectedIcon = element;
 }
 
 function deselectIcon(element) {
   element.classList.remove("selected");
   selectedIcon = undefined
 }
-
+document.addEventListener("mousedown", (e) => {
+  if (!e.target.closest('.appDiv') && selectedIcon) {
+    deselectIcon(selectedIcon);
+  }
+});
 function handleIconTap(element) {
-  if (element.classList.contains("selected")) {
-    deselectIcon(element)
-    openWindow(window)
-  } else {
-    selectIcon(element)
+  selectIcon(element);
+  
+  // Logic: if element is #aboutIcon, open #about
+  var targetId = element.id.replace("Icon", ""); 
+  var win = document.querySelector("#" + targetId);
+  
+  if (win) {
+    openWindow(win);
   }
 }
 var topBar = document.querySelector("#topBar")
@@ -121,8 +129,8 @@ function addWindowTapHandling(element) {
     handleWindowTap(element)
   )
 }
-addWindowTapHandling(welcomeScreen)
-addWindowTapHandling(aboutScreen)
+// addWindowTapHandling(welcomeScreen)
+// addWindowTapHandling(aboutScreen)
 
 function handleWindowTap(element) {
   biggestIndex++;  // Increment biggestIndex by 1
@@ -130,3 +138,33 @@ function handleWindowTap(element) {
   topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon)
 }
+function initializeWindow(elementName) {
+  var screen = document.querySelector("#" + elementName);
+  if (!screen) return; // Safety check to ensure element exists
+
+  // 1. Enable Draggable functionality
+  dragElement(screen);
+
+  // 2. Enable Tap/Focus functionality (bring to top)
+  addWindowTapHandling(screen);
+
+  // 3. Setup Close functionality
+  // Note: Assumes you have an element with ID: elementName + "Close"
+  var closeBtn = document.querySelector("#" + elementName + "Close");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      closeWindow(screen);
+    });
+  }
+
+  // 4. Setup Open functionality (Optional helper if you have a button)
+  // Assuming you have an icon/button with ID: elementName + "Open"
+  var openBtn = document.querySelector("#" + elementName + "Icon");
+  if (openBtn) {
+    openBtn.addEventListener("click", function () {
+      openWindow(screen);
+    });
+  }
+}
+initializeWindow("welcome");
+initializeWindow("about");
