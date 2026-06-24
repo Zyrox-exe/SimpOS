@@ -71,6 +71,9 @@ function closeWindow(element) {
 }
 function openWindow(element) {
   element.style.display = "block";
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+  topBar.style.zIndex = biggestIndex + 1;
 }
 
 var welcomeScreenOpen = document.querySelector("#barTitle");
@@ -110,4 +113,20 @@ function handleIconTap(element) {
   } else {
     selectIcon(element)
   }
+}
+var topBar = document.querySelector("#topBar")
+var biggestIndex = 1;
+function addWindowTapHandling(element) {
+  element.addEventListener("mousedown", () =>
+    handleWindowTap(element)
+  )
+}
+addWindowTapHandling(welcomeScreen)
+addWindowTapHandling(aboutScreen)
+
+function handleWindowTap(element) {
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+  topBar.style.zIndex = biggestIndex + 1;
+  deselectIcon(selectedIcon)
 }

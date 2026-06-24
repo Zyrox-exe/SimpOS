@@ -73,7 +73,13 @@ body {
   margin-right: 16px;
 }
 .desktopIcon{
-  font-size: 3.8em;
+  height: 64px;
+  width: 64px;
+}
+.appTitle{
+  color: white;
+  margin-top: 12px;
+  margin-bottom: 8px;
 }
 .windowHeader {
   cursor: move;
@@ -120,10 +126,6 @@ body {
   width: 90px;
   align-items: center;
   margin-bottom: 20px;
-}
-.appDiv p {
-  margin-top: 12px;
-  margin-bottom: 8px;
 }
 .desktopIcon {
   justify-self: center;
