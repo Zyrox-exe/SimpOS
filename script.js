@@ -5,10 +5,6 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 
-// Make the DIV element draggable:
-dragElement(document.getElementById("welcome"));
-dragElement(document.getElementById("about"));
-
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
   // Step 2: Set up variables to keep track of the element's position.
@@ -60,11 +56,7 @@ function dragElement(element) {
     document.onmousemove = null;
   }
 }
-// var welcomeScreen = document.querySelector("#welcome");
-// var aboutScreen = document.querySelector("#about");
-// var welcomeScreen = document.querySelector("#notes");
-// var welcomeScreen = document.querySelector("#terminal");
-// var welcomeScreen = document.querySelector("#wikipedia");
+
 var selectedIcon = undefined;
 
 function closeWindow(element) {
@@ -77,25 +69,6 @@ function openWindow(element) {
   topBar.style.zIndex = biggestIndex + 1;
 }
 
-// var welcomeScreenOpen = document.querySelector("#welcomeIcon");
-// var welcomeScreenClose = document.querySelector("#welcomeClose");
-
-// welcomeScreenOpen.addEventListener("click", function () {
-//   openWindow(welcomeScreen);
-// });
-// welcomeScreenClose.addEventListener("click", function () {
-//   closeWindow(welcomeScreen);
-// });
-
-// var aboutScreenOpen = document.querySelector("#aboutIcon");
-// var aboutScreenClose = document.querySelector("#aboutClose");
-
-// aboutScreenOpen.addEventListener("click", function () {
-//   openWindow(aboutScreen);
-// });
-// aboutScreenClose.addEventListener("click", () => closeWindow(aboutScreen));
-
-
 function selectIcon(element) {
   if (selectedIcon) deselectIcon(selectedIcon);
   element.classList.add("selected");
@@ -103,8 +76,10 @@ function selectIcon(element) {
 }
 
 function deselectIcon(element) {
-  element.classList.remove("selected");
-  selectedIcon = undefined
+  if(element){
+    element.classList.remove("selected");
+    selectedIcon = undefined
+  }
 }
 document.addEventListener("mousedown", (e) => {
   if (!e.target.closest('.appDiv') && selectedIcon) {
@@ -129,11 +104,9 @@ function addWindowTapHandling(element) {
     handleWindowTap(element)
   )
 }
-// addWindowTapHandling(welcomeScreen)
-// addWindowTapHandling(aboutScreen)
 
 function handleWindowTap(element) {
-  biggestIndex++;  // Increment biggestIndex by 1
+  biggestIndex++;
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon)
@@ -142,14 +115,11 @@ function initializeWindow(elementName) {
   var screen = document.querySelector("#" + elementName);
   if (!screen) return; // Safety check to ensure element exists
 
-  // 1. Enable Draggable functionality
-  dragElement(screen);
 
-  // 2. Enable Tap/Focus functionality (bring to top)
-  addWindowTapHandling(screen);
+  dragElement(screen);  // Make Draggable
+  addWindowTapHandling(screen);  // bring to top
 
-  // 3. Setup Close functionality
-  // Note: Assumes you have an element with ID: elementName + "Close"
+  // Make closable (needs ID: elementName + "Close")
   var closeBtn = document.querySelector("#" + elementName + "Close");
   if (closeBtn) {
     closeBtn.addEventListener("click", function () {
@@ -157,8 +127,7 @@ function initializeWindow(elementName) {
     });
   }
 
-  // 4. Setup Open functionality (Optional helper if you have a button)
-  // Assuming you have an icon/button with ID: elementName + "Open"
+  // Make openable (needs ID: elementName + "Icon")
   var openBtn = document.querySelector("#" + elementName + "Icon");
   if (openBtn) {
     openBtn.addEventListener("click", function () {
@@ -168,3 +137,78 @@ function initializeWindow(elementName) {
 }
 initializeWindow("welcome");
 initializeWindow("about");
+initializeWindow("notes");
+
+// notes
+var content = [
+{
+  title: "Welcome!",
+  date: "25/06/2026",
+  content: `
+  <p contenteditable="true">Welcome to <strong>Cozy Notes</strong>
+            </br>
+            </br>
+            <img src=""
+              style="width: 96px; border-radius: 16px" />
+            </br>
+            This is a place where I store whatever comes to the mind. What exactly will you find when browsing through these notes? As I <ins>always say</ins>
+        <blockquote
+          style="background-color: #F9F9F9; margin-top: 16x; margin-bottom: 16px; margin-left: 0px; margin-right: 0px; padding: 16px; border-radius: 16px;"
+          contenteditable="true">
+          <i>Wisdom comes to anyone who stops seeking the world
+            </br>
+            ~ Sadiq
+          </i>
+        </blockquote>
+        <div contenteditable="true">
+          You may sometimes see my daily life here, sometimes just me arguing how Romcom animes are the best. Weather you agree with me or not that doesn't matter. What matters is <abbr title="A great Romcom">Kaguya Sama: Love is War.</abbr> 
+        </div>
+            </p>
+            `
+}
+]
+function setNotesContent(index) {
+  var notesContent = document.querySelector("#notesContent")
+  notesContent.innerHTML = content[index].content
+}
+setNotesContent(0)
+
+function addToSideBar(index) {
+  var sideBar = document.querySelector("#notesSideBar");
+  var note = content[index];
+  var newDiv = document.createElement("div");
+  newDiv.innerHTML = `
+  <p style="margin: 0px;">
+      ${note.title}
+    </p>
+    <p style="font-size: 12px; margin: 0px;">
+      ${note.date}
+    </p>
+    `
+  newDiv.addEventListener("click", function() {
+    setNotesContent(index);
+  });
+  sideBar.appendChild(newDiv);
+}
+
+for (let i = 0; i < content.length; i++) {
+addToSideBar(i)
+}
+setNotesContent(0);
+
+var addBtn = document.querySelector("#newNoteBtn");
+addBtn.addEventListener("click", function() {
+  // new note
+  var newNote = {
+    title: "New Note",
+    date: "06/25/2026",
+    content: `<p contenteditable="true">This is a fresh note!</p>`
+  };
+  content.push(newNote);
+
+  var sidebar = document.querySelector("#notesSideBar");
+  sidebar.innerHTML = ""; // This wipes the sidebar clean
+  for (let i = 0; i < content.length; i++) {
+    addToSideBar(i);
+  }
+});

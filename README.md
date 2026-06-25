@@ -33,19 +33,22 @@ Simply open `index.html` in any modern web browser to view the desktop.
 ## 🎨Project Structure
 
 ```/
-├── index.html       # Main entry point
-├── style.css        # Core styling for the environment
-├── script.js        # Logic for window dragging and OS interactions
-└── images/          # Media files
+├── index.html
+├── style.css
+├── script.js
+└── images/
 ```
 
 ## 💡How it works
-SimpOS uses simple JavaScript to create a "desktop" experience. When you click and hold the title bar of a window, the browser tracks your mouse movement and updates the window's position on the screen in real-time. This makes the elements feel like they are floating freely above the desktop wallpaper.
+SimpOS simply tracks your moues coordinates on screen when you are holding a window header and updates the window position live, making it feel like a desktop environment. To make it look even better, there is a wallpaper as background, a top bar and apps on the desktop just like modern Operating Systems. (I am still working on the apps yet)
 
 ## 📈Roadmap
+- [x] Add app launching capabilities.
 - [ ] Add taskbar functionality.
-- [ ] Implement a simple file explorer.
-- [ ] Add app launching capabilities.
-- [ ] Create a theme switcher (Dark/Light/Retro).
+- [ ] Implement a simple terminal.
+- [ ] Add a working music player.
 
-<footer>Made with ❤️ by Mohd Sadiq Umar</footer>
+### Sources Used:
+[Hackclub Jams](https://jams.hackclub.com/batch/webOS)
+
+<footer>Made with ❤️ by Mohd Sadiq Umar for [Hackclub Horizons]()</footer>
