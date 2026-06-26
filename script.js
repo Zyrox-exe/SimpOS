@@ -138,6 +138,8 @@ function initializeWindow(elementName) {
 initializeWindow("welcome");
 initializeWindow("about");
 initializeWindow("notes");
+initializeWindow("wikipedia");
+initializeWindow("music");
 
 // notes
 var content = [
@@ -207,8 +209,49 @@ addBtn.addEventListener("click", function() {
   content.push(newNote);
 
   var sidebar = document.querySelector("#notesSideBar");
-  sidebar.innerHTML = ""; // This wipes the sidebar clean
+  sidebar.innerHTML = "";
   for (let i = 0; i < content.length; i++) {
     addToSideBar(i);
   }
 });
+
+// Music Player and switcher
+var playlist = [
+  { title: "City", file: "./music/City_Massobeats.mp3", image: "./images/city_cover.webp"},
+  { title: "Gift", file: "./music/Gift_Massobeats.mp3", image: "./images/Gift_cover.webp"},
+  { title: "Gingersweet", file: "./music/Gingersweet_Massobeats.mp3", image: "./images/gingersweet_cover.webp"},
+  { title: "Honey Jam", file: "./music/Honey Jam_Massobeats.mp3", image: "./images/honey jam_cover.webp"},
+  { title: "Peach Prosecco", file: "./music/Peach Prosecco_Massobeats.mp3", image: "./images/peach prosecco_cover.webp"},
+  { title: "Rose Water", file: "./music/Rose Water_Massobeats.mp3", image: "./images/rose water_cover.webp"},
+  { title: "Taro Swirl", file: "./music/Taro Swirl_Massobeats.mp3", image: "./images/taro swirl_cover.webp"},
+];
+
+function playSong(index) {
+  var player = document.querySelector("#musicPlayer");
+  var artDisplay = document.querySelector("#albumArt");
+  var song = playlist[index];
+  artDisplay.src = song.image;
+  player.load();
+  player.play();
+}
+function populatePlaylist() {
+  var container = document.querySelector("#musicContainer");
+  var ul = document.createElement("ul");
+  ul.style.listStyle = "none";
+  ul.style.padding = "0";
+  ul.style.width = "90%"
+  playlist.forEach((song, index) => {
+    var li = document.createElement("li");
+    li.textContent = "▶ " + song.title;
+    li.style.padding = "8px";
+    li.style.cursor = "pointer";
+    li.style.borderBottom = "1px solid burlywood";
+    li.addEventListener("click", () => {
+      playSong(index);
+    });
+    
+    ul.appendChild(li);
+  });
+  container.appendChild(ul);
+}
+populatePlaylist();

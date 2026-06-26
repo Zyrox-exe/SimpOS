@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simp OS</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
   </head>
   <body>
     <div id="topBar">
@@ -87,6 +88,40 @@
             <button id="newNoteBtn" style="border-radius: 8px;background-color: rgb(246, 220, 187);">New Note</button>
           </div>
           <div id="notesContent" style="overflow-y: scroll;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div id="wikipedia" class="window">
+        <div id="wikipediaHeader" class="windowHeader" >
+          <pre></pre>
+          <p style="margin: 0px;margin-top: 4px;">Welcome!</p>
+          <div id="wikipediaClose" class="windowClose">X</div>
+        </div>
+        <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
+        <iframe height="500px" width="700px" src="https://www.wikipedia.org?printable=yes" title="Wikipedia"></iframe>
+      </div>
+    <div>
+      <div id="music" class="window">
+        <div id="musicHeader" class="windowHeader" >
+          <pre></pre>
+          <p style="margin: 0px;margin-top: 4px;">Cozy Music</p>
+          <div id="musicClose" class="windowClose">X</div>
+        </div>
+        <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
+        <div id="musicApp" style="display: flex;flex-direction: column;">
+          <div style="display: flex;flex-direction: row;justify-content: space-between;">
+            <img id="albumArt" src="./images/default.webp" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 10px;align-self: flex-start;">
+            <div style="display: flex;flex-direction: column;align-self: center;">
+              <p style="font-weight: bold; margin: 0;height: min-content;">Lo-fi Beats</p>
+              <p style="font-size: 12px;margin: 0;height: min-content;justify-self: flex-end;">Massobeats</p>
+            </div>
+          </div>
+          <audio id="musicPlayer" controls>
+            <source src="./music/City_Massobeats.mp3" type="audio/mpeg">
+          </audio>
+          <div id="musicContainer">
           </div>
         </div>
       </div>
