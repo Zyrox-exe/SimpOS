@@ -1,6 +1,6 @@
 # SimpOS
 
-A minimalist and modern web operating system designed for simplicity and efficiency made with the purpose of learning and showcasing front-end development skills. **SimpOS** brings a clean, desktop-like experience directly to your browser using only vanilla HTML, CSS, and JavaScript.(Coz I don't know any frameworks lol).
+A minimalist and modern web operating system designed for simplicity and efficiency made with the purpose of learning and showcasing front-end development skills. **SimpOS** brings a clean, desktop-like experience directly to your browser using only pure HTML, CSS, and JavaScript.(Coz I don't know any frameworks lol).
 
 ---
 
@@ -9,6 +9,8 @@ A minimalist and modern web operating system designed for simplicity and efficie
 * **Minimalist UI:** Uncluttered workspace to help you focus on what matters.
 * **Web-Native:** Built entirely from scratch without heavy frameworks.
 * **Interactive Components:** Features a fully working desktop environment with apps.
+* **Window Resizability:** Have resizable app windows
+* **Music Player:** A music player that plays the music stored in the repo.
 
 ---
 
@@ -27,7 +29,8 @@ A minimalist and modern web operating system designed for simplicity and efficie
    git clone https://github.com/Zyrox-exe/SimpOS.git
    ```
 2. **Open Locally:**
-Simply open `index.html` in any modern web browser to view the desktop.
+Open `index.html` in almost any web browser(If it is not that old).
+3. Edit the source code as per your liking.
 
 ## Project Structure
 
@@ -43,13 +46,18 @@ Simply open `index.html` in any modern web browser to view the desktop.
 SimpOS simply tracks your mouse coordinates on screen when you are holding a window header and updates the window position live, making it feel like a desktop environment. To make it look even better, there is a wallpaper as background, a top bar and apps on the desktop just like modern Operating Systems. (I am still working on the apps yet)
 
 ## Roadmap
-- [x] Add app launching capabilities.
-- [ ] Add taskbar functionality.
 - [ ] Implement a simple terminal.
-- [x] Add a working music player.
-- [x] Add a wikipedia page.
+- [ ] Add taskbar functionality.
+- [x] ~~Make windows Resizable.~~
+- [x] ~~Add app launching capabilities~~.
+- [x] ~~Add a working music player.~~
+- [x] ~~Add a wikipedia page.~~
 
 ### Sources Used:
 [Hackclub Jams](https://jams.hackclub.com/batch/webOS)<br>
-[Hackclub Horizons](https://horizons.hackclub.com) (Made for Horizons)
+
+### Credits:
+Massobeats for Music<br>
+Made for [Hackclub Horizons](https://horizons.hackclub.com)
+
 <footer>Made with ❤️ by Mohd Sadiq Umar</footer>
