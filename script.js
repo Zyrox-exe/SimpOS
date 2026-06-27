@@ -61,6 +61,9 @@ function openWindow(element) {
   biggestIndex++;  // Increment biggestIndex by 1
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
+  if(element.id === "notes") {
+      setNotesContent(currentNoteIndex);
+  }
 }
 
 function selectIcon(element) {
@@ -190,55 +193,82 @@ var content = [
         </div>
             </p>
             `
+}]
+
+var currentNoteIndex = 0;
+
+const savedNotes = localStorage.getItem("notes");
+
+if (savedNotes) {
+    content = JSON.parse(savedNotes);
 }
-]
+
 function setNotesContent(index) {
-  var notesContent = document.querySelector("#notesContent")
-  notesContent.innerHTML = content[index].content
+  saveCurrentNote();
+    currentNoteIndex = index;
+    document.querySelector("#noteTitleInput").value =
+        content[index].title;
+    document.querySelector("#notesContent").innerHTML =
+        content[index].content;
 }
-setNotesContent(0)
+function saveCurrentNote() {
+  if(currentNoteIndex === null) return;
+  const notesContent = document.querySelector("#notesContent");
+    const titleInput = document.querySelector("#noteTitleInput");
 
-function addToSideBar(index) {
-  var sideBar = document.querySelector("#notesSideBar");
-  var note = content[index];
-  var newDiv = document.createElement("div");
-  newDiv.innerHTML = `
-  <p style="margin: 0px;">
-      ${note.title}
-    </p>
-    <p style="font-size: 12px; margin: 0px;">
-      ${note.date}
-    </p>
-    `
-  newDiv.addEventListener("click", function() {
-    setNotesContent(index);
-  });
-  sideBar.appendChild(newDiv);
+    content[currentNoteIndex].content = notesContent.innerHTML;
+    content[currentNoteIndex].title = titleInput.value;
+    localStorage.setItem("notes", JSON.stringify(content));
+    renderSidebar();
+}
+function renderSidebar() {
+    const sidebar = document.querySelector("#notesSideBar");
+    sidebar.innerHTML = "";
+
+    content.forEach((note, index) => {
+        const noteDiv = document.createElement("div");
+        noteDiv.classList.add("noteInSideBar");
+
+        noteDiv.innerHTML = `
+            <strong>${note.title}</strong><br>
+            <small>${note.date}</small>
+        `;
+
+        noteDiv.onclick = () => setNotesContent(index);
+
+        sidebar.appendChild(noteDiv);
+    });
 }
 
-for (let i = 0; i < content.length; i++) {
-addToSideBar(i)
-}
-setNotesContent(0);
+document.addEventListener("DOMContentLoaded", () => {
+  renderSidebar();
+  currentNoteIndex = 0;
+  document.querySelector("#noteTitleInput").value = content[0].title;
+  document.querySelector("#notesContent").innerHTML = content[0].content;
+
+    document.querySelector("#notesContent")
+        .addEventListener("input", saveCurrentNote);
+
+    document.querySelector("#noteTitleInput")
+        .addEventListener("input", saveCurrentNote);
+});
 
 var addBtn = document.querySelector("#newNoteBtn");
 addBtn.addEventListener("click", function() {
   // new note
   var newNote = {
     title: "New Note",
-    date: "06/25/2026",
+    date: new Date().toLocaleDateString(),
     content: `<p contenteditable="true">This is a fresh note!</p>`
   };
   content.push(newNote);
-
-  var sidebar = document.querySelector("#notesSideBar");
-  sidebar.innerHTML = "";
-  for (let i = 0; i < content.length; i++) {
-    addToSideBar(i);
-  }
+  renderSidebar();
+  setNotesContent(content.length - 1);
 });
 
+
 // Music Player and switcher
+let currentSongIndex = 0;
 var playlist = [
   { title: "City", file: "./music/City_Massobeats.mp3", image: "./images/city_cover.webp"},
   { title: "Gift", file: "./music/Gift_Massobeats.mp3", image: "./images/Gift_cover.webp"},

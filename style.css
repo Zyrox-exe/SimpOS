@@ -19,6 +19,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow:auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 .windowDivider{
   margin: 4px;
@@ -47,6 +51,7 @@ body {
 #notes{
   display: none;
   width: 500px;
+  height: 400px;
 }
 #wikipedia{
   display: none;
