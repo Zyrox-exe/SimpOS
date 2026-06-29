@@ -24,6 +24,15 @@ function dragElement(element) {
     e = e || window.event;
     e.preventDefault();
 
+    // If the element still has the centering transform, resolve it to real px
+    // so offsetTop/offsetLeft match what's on screen from here on
+    if (element.style.transform !== "none" && element.style.transform !== "") {
+      const rect = element.getBoundingClientRect();
+      element.style.transform = "none";
+      element.style.top = rect.top + "px";
+      element.style.left = rect.left + "px";
+    }
+
     initialX = e.clientX;
     initialY = e.clientY;
 
@@ -41,14 +50,23 @@ function dragElement(element) {
     initialX = e.clientX;
     initialY = e.clientY;
 
-    element.style.top = element.offsetTop - currentY + "px";
-    element.style.left = element.offsetLeft - currentX + "px";
+    const topBarHeight = document.querySelector("#topBar").offsetHeight;
+    const minLeft = 0;
+    const maxLeft = window.innerWidth - element.offsetWidth;
+    const minTop = topBarHeight + 4; // 4px breathing room below top bar
+    const maxTop = window.innerHeight - element.offsetHeight;
+
+    const newTop = Math.min(Math.max(element.offsetTop - currentY, minTop), maxTop);
+    const newLeft = Math.min(Math.max(element.offsetLeft - currentX, minLeft), maxLeft);
+
+    element.style.top = newTop + "px";
+    element.style.left = newLeft + "px";
   }
 
   function stopDragging() {
     document.onmouseup = null;
     document.onmousemove = null;
-  }
+  } 
 }
 
 var selectedIcon = undefined;

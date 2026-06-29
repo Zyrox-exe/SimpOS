@@ -18,9 +18,8 @@ body {
   padding: 10px;
   padding-top: 4px;
   padding-bottom: 0px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 35%;
   box-sizing: border-box;
 }
 .windowDivider{
@@ -34,13 +33,14 @@ body {
   width: 15px;
   height: 15px;
   background: burlywood;
-  position: fixed;
+  position: absolute;
   right: 0;
   bottom: 0;
   cursor: se-resize;
 }
 #welcome {
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 26vh;
   width: 55vh;
 }
@@ -192,7 +192,4 @@ audio {
 }
 .hidden{
   display: none;
-}
-.show{
-  display: block;
 }
