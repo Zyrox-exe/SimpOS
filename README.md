@@ -1,10 +1,10 @@
 # SimpOS
-
 A minimalist and modern web operating system designed for simplicity and efficiency made with the purpose of learning and showcasing front-end development skills. **SimpOS** brings a clean, desktop-like experience directly to your browser using only pure HTML, CSS, and JavaScript.(Coz I don't know any frameworks lol).
 
 ---
 
-## Features
+## Features🤠
+
 
 * **Web-Native:** Built entirely from scratch without heavy frameworks.
 * **Interactive Components:** Features a fully working desktop environment with apps.
@@ -13,15 +13,23 @@ A minimalist and modern web operating system designed for simplicity and efficie
 
 ---
 
-## Tech Stack
+## Tech Stack👾
 
 * **HTML5:** Simple Document Layout.
 * **CSS3:** Styled with base CSS mainly using Classes.
 * **Vanilla JavaScript:** Powers the interactive elements like draggable windows, notes window and opening/closing programs.
 
 ---
+## Apps Available:
 
-## Make your own
+* **About:** A small description of me.
+* **Notes:** A notekeeper that keep notes safe in local storage.
+* **Terminal:** A fake terminal with basic commands.
+* **Wikipedia:** A wikipedia search page.
+* **Music:** A music player that plays music stored in the repo.
+---
+
+## Make your own🤖
 
 1. **Clone the repository:**
    ```bash
@@ -62,5 +70,8 @@ Made for [Hackclub Horizons](https://horizons.hackclub.com)
 
 ### AI usage:
 AI was used for help with JavaScript blocks like notes, terminal and music. I was continuously learning JavaScript while working with this project as I didn't have any prior experience with it.
+**Following tools were used:**<br>
+- Gemini Chat
+- Claude Chat
 
 <footer>Made with ❤️ by Mohd Sadiq Umar</footer>
