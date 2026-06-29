@@ -80,7 +80,7 @@ body {
 audio {
   width: 100%;
   height: 40px;
-  filter: sepia(0.5) hue-rotate(-20deg) contrast(1.1); /* Tints it to match your color palette */
+  filter: sepia(0.5) hue-rotate(-20deg) contrast(1.1);
   outline: none;
 }
 #music{

@@ -59,4 +59,8 @@ SimpOS simply tracks your mouse coordinates on screen when you are holding a win
 All the music present on the site is not owned by me and rightfully belongs to Massobeats<br>
 Made for [Hackclub Horizons](https://horizons.hackclub.com)
 
+
+### AI usage:
+AI was used for help with JavaScript blocks like notes, terminal and music. I was continuously learning JavaScript while working with this project as I didn't have any prior experience with it.
+
 <footer>Made with ❤️ by Mohd Sadiq Umar</footer>

@@ -1,3 +1,4 @@
+// Date and Time
 function updateTime() {
   var currentTime = new Date().toLocaleString();
   var timeText = document.querySelector("#barDateAndTime");
@@ -5,6 +6,7 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 
+// Window Functions
 function dragElement(element) {
 
   var initialX = 0;
@@ -24,8 +26,6 @@ function dragElement(element) {
     e = e || window.event;
     e.preventDefault();
 
-    // If the element still has the centering transform, resolve it to real px
-    // so offsetTop/offsetLeft match what's on screen from here on
     if (element.style.transform !== "none" && element.style.transform !== "") {
       const rect = element.getBoundingClientRect();
       element.style.transform = "none";
@@ -53,7 +53,7 @@ function dragElement(element) {
     const topBarHeight = document.querySelector("#topBar").offsetHeight;
     const minLeft = 0;
     const maxLeft = window.innerWidth - element.offsetWidth;
-    const minTop = topBarHeight + 4; // 4px breathing room below top bar
+    const minTop = topBarHeight + 4;
     const maxTop = window.innerHeight - element.offsetHeight;
 
     const newTop = Math.min(Math.max(element.offsetTop - currentY, minTop), maxTop);
@@ -76,7 +76,7 @@ function closeWindow(element) {
 }
 function openWindow(element) {
   element.style.display = "block";
-  biggestIndex++;  // Increment biggestIndex by 1
+  biggestIndex++;
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
   if(element.id === "notes") {
@@ -104,7 +104,6 @@ document.addEventListener("mousedown", (e) => {
 function handleIconTap(element) {
   selectIcon(element);
   
-  // if element is #aboutIcon, open #about
   var targetId = element.id.replace("Icon", ""); 
   var win = document.querySelector("#" + targetId);
   
@@ -137,7 +136,6 @@ function makeResizable(element) {
     const newWidth = e.clientX - element.getBoundingClientRect().left;
     const newHeight = e.clientY - element.getBoundingClientRect().top;
     
-    // Set minimum size constraints
     if (newWidth > 150) element.style.width = newWidth + 'px';
     if (newHeight > 100) element.style.height = newHeight + 'px';
   }
@@ -154,16 +152,16 @@ function handleWindowTap(element) {
   topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon)
 }
+// All functions in one(heh!)
 function initializeWindow(elementName) {
   var screen = document.querySelector("#" + elementName);
-  if (!screen) return; // Safety check to ensure element exists
+  if (!screen) return;
 
 
-  dragElement(screen);  // Make Draggable
-  addWindowTapHandling(screen);  // bring to top
-  makeResizable(screen); //Make resizable
+  dragElement(screen);
+  addWindowTapHandling(screen);
+  makeResizable(screen);
 
-  // Make closable (needs ID: elementName + "Close")
   var closeBtn = document.querySelector("#" + elementName + "Close");
   if (closeBtn) {
     closeBtn.addEventListener("click", function () {
@@ -171,7 +169,6 @@ function initializeWindow(elementName) {
     });
   }
 
-  // Make openable (needs ID: elementName + "Icon")
   var openBtn = document.querySelector("#" + elementName + "Icon");
   if (openBtn) {
     openBtn.addEventListener("click", function () {
@@ -345,7 +342,6 @@ terminalInput.addEventListener("keydown", function(e) {
     const command = terminalInput.value.trim();
     terminalOutput.innerHTML += `<div>user@simpos:~$ ${command}</div>`;
     
-    // Simple command handling
     if (command === "help") {
       terminalOutput.innerHTML += `<div style="white-space: pre-wrap;">Available Commands:
 help
@@ -365,7 +361,7 @@ whoami</div>`;
       terminalOutput.innerHTML += `<div>Command not found: ${command}</div>`;
     }
     
-    terminalInput.value = ""; // Clear input
+    terminalInput.value = "";
     terminalOutput.scrollIntoView({ behavior: "smooth", block: "end" });
   }
 });
