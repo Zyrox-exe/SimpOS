@@ -166,8 +166,9 @@ initializeWindow("about");
 initializeWindow("notes");
 initializeWindow("wikipedia");
 initializeWindow("music");
+initializeWindow("terminal");
 
-// notes
+// Notes
 var content = [
 {
   title: "Welcome!",
@@ -255,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 var addBtn = document.querySelector("#newNoteBtn");
 addBtn.addEventListener("click", function() {
-  // new note
+  // New Note
   var newNote = {
     title: "New Note",
     date: new Date().toLocaleDateString(),
@@ -316,3 +317,37 @@ function populatePlaylist() {
   container.appendChild(ul);
 }
 populatePlaylist();
+
+// Terminal Window
+const terminalInput = document.querySelector("#terminalInput");
+const terminalOutput = document.querySelector("#terminalOutput");
+
+terminalInput.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    const command = terminalInput.value.trim();
+    terminalOutput.innerHTML += `<div>user@simpos:~$ ${command}</div>`;
+    
+    // Simple command handling
+    if (command === "help") {
+      terminalOutput.innerHTML += `<div style="white-space: pre-wrap;">Available Commands:
+help
+version
+clear
+about
+whoami</div>`;
+    } else if (command === "clear") {
+      terminalOutput.innerHTML = "";
+    } else if (command === "version") {
+      terminalOutput.innerHTML += `<div>SimpOS v1.0 - Built by Sadiq</div>`;
+    } else if (command === "whoami") {
+      terminalOutput.innerHTML += `<div>User1</div>`;
+    } else if (command === "about") {
+      terminalOutput.innerHTML += `<div>A self-taught aspiring web developer from India!</div>`;
+    } else {
+      terminalOutput.innerHTML += `<div>Command not found: ${command}</div>`;
+    }
+    
+    terminalInput.value = ""; // Clear input
+    terminalOutput.scrollIntoView({ behavior: "smooth", block: "end" });
+  }
+});

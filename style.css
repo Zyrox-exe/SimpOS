@@ -1,5 +1,6 @@
 body {
-  font-family: monospace, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
   background-position: center;
   background: url("./images/lycoris-recoil.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -9,6 +10,7 @@ body {
 }
 
 .window{
+  display: none;
   position: fixed;
   background-color: antiquewhite;
   border: solid;
@@ -19,10 +21,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* overflow:auto; */
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
 }
 .windowDivider{
   margin: 4px;
@@ -41,22 +40,27 @@ body {
   cursor: se-resize;
 }
 #welcome {
+  display: block;
   height: 26vh;
   width: 55vh;
 }
 #about {
-  display: none;
   width: 30vw;
   overflow: auto;
 }
 #notes{
-  display: none;
   height: 65vh;
   width: 50vw;
   overflow: auto;
 }
+#terminal{
+  height: 60vh;
+  width: 60vw;
+  overflow-y: auto;
+}
 #wikipedia{
-  display: none;
+  height: 60vh;
+  width: 60vw;
 }
 #wikipediaFrame{
   width: 100%;
@@ -70,7 +74,7 @@ body {
   padding-top: 4px;
   padding: 15px;
   background: rgba(255, 255, 255, 0.3);
-  height: 20vh;
+  height: 24vh;
   overflow-y: auto; 
 }
 audio {
@@ -80,11 +84,9 @@ audio {
   outline: none;
 }
 #music{
-  display: none;
   width: 300px;
   height: 400px;
   overflow: hidden;
-  /* align-items: stretch; */
 }
 #myImg {
   border-radius: 50%;
@@ -130,8 +132,6 @@ audio {
   margin-bottom: 8px;
 }
 .windowHeader {
-  /* position: absolute; */
-  /* top: 40; */
   cursor: move;
   width: 100%;
   display: flex;

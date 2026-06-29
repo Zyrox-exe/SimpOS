@@ -42,11 +42,11 @@ Open `index.html` in almost any web browser(If it is not that old).
 ```
 
 ## How it works
-SimpOS simply tracks your mouse coordinates on screen when you are holding a window header and updates the window position live, making it feel like a desktop environment. To make it look even better, there is a wallpaper as background, a top bar and apps on the desktop just like modern Operating Systems. (I am still working on the apps yet)
+SimpOS simply tracks your mouse coordinates on screen when you are holding a window header and updates the window position live, making it feel like a desktop environment. To make it look even better, there is a wallpaper as background, a top bar and apps on the desktop just like modern Operating Systems. It brings multiple functionable apps like music, wikipedia, notes etc that work mainly using javascrit.
 
 ## Roadmap
-- [ ] Implement a simple terminal.
 - [ ] Add taskbar functionality.
+- [x] ~~Implement a simple terminal.~~
 - [x] ~~Make windows Resizable.~~
 - [x] ~~Add app launching capabilities~~.
 - [x] ~~Add a working music player.~~
@@ -56,7 +56,7 @@ SimpOS simply tracks your mouse coordinates on screen when you are holding a win
 [Hackclub Jams](https://jams.hackclub.com/batch/webOS)<br>
 
 ### Credits:
-Massobeats for Music<br>
+All the music present on the site is not owned by me and rightfully belongs to Massobeats<br>
 Made for [Hackclub Horizons](https://horizons.hackclub.com)
 
 <footer>Made with ❤️ by Mohd Sadiq Umar</footer>
