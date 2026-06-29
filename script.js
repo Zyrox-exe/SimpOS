@@ -300,7 +300,7 @@ function populatePlaylist() {
   var ul = document.createElement("ul");
   ul.style.listStyle = "none";
   ul.style.padding = "0";
-  ul.style.width = "90%"
+  ul.style.width = "90%";
   playlist.forEach((song, index) => {
     var li = document.createElement("li");
     li.textContent = "▶ " + song.title;

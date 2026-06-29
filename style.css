@@ -19,7 +19,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow:auto;
+  /* overflow:auto; */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -34,8 +34,8 @@ body {
 .resizer {
   width: 15px;
   height: 15px;
-  background: burlywood; /* Matches your theme */
-  position: absolute;
+  background: burlywood;
+  position: fixed;
   right: 0;
   bottom: 0;
   cursor: se-resize;
@@ -46,12 +46,14 @@ body {
 }
 #about {
   display: none;
-  width: 330px;
+  width: 30vw;
+  overflow: auto;
 }
 #notes{
   display: none;
-  width: 500px;
-  height: 400px;
+  height: 65vh;
+  width: 50vw;
+  overflow: auto;
 }
 #wikipedia{
   display: none;
@@ -68,8 +70,8 @@ body {
   padding-top: 4px;
   padding: 15px;
   background: rgba(255, 255, 255, 0.3);
-  height: 200px;
-  overflow-y: auto;
+  height: 20vh;
+  overflow-y: auto; 
 }
 audio {
   width: 100%;
@@ -78,9 +80,11 @@ audio {
   outline: none;
 }
 #music{
-  display: none;
+  display: block;
   width: 300px;
   height: 400px;
+  overflow: hidden;
+  /* align-items: stretch; */
 }
 #myImg {
   border-radius: 50%;
@@ -125,6 +129,8 @@ audio {
   margin-bottom: 8px;
 }
 .windowHeader {
+  /* position: absolute; */
+  /* top: 40; */
   cursor: move;
   width: 100%;
   display: flex;

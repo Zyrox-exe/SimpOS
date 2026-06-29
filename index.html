@@ -41,16 +41,18 @@
           <div id="welcomeClose" class="windowClose">X</div>
         </div>
         <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
-        <div id="picAndTitle" style="display: flex;">
-          <img id="myImg" src="./images/Nature.jpg" />
-          <h1>SimpOS</h1>
+        <div style="overflow: auto;">
+          <div id="picAndTitle" style="display: flex;">
+            <img id="myImg" src="./images/Nature.jpg" />
+            <h1>SimpOS</h1>
+          </div>
+            <p style="margin-top: 0px;margin-bottom: 4px;">
+              <dfn>SimpOS</dfn> is a minimalist retro style web
+              <abbr title="Operating System">OS</abbr> made
+              to make life easier and show the skills of its Creator.
+            </p>
+          </div>
         </div>
-          <p style="margin-top: 0px;margin-bottom: 4px;">
-            <dfn>SimpOS</dfn> is a minimalist retro style web
-            <abbr title="Operating System">OS</abbr> made
-            to make life easier and show the skills of its Creator.
-          </p>
-      </div>
     </div>
     <div>
       <div id="about" class="window">
@@ -83,25 +85,25 @@
           <div style="display: flex; flex-direction: row; flex: 1;">
             <div style="display: flex; flex-direction: column; width: 30%;">
               <div id="notesSideBar" style="padding: 4px; overflow-y: auto;cursor: pointer;margin-right: 4px;"></div>
-                <button id="newNoteBtn" style="margin-right: 8px;">New Note</button>
+                <button id="newNoteBtn" style="margin-right: 8px;background-color: rgb(203, 164, 114);border-radius: 12px;border-width: 1px;padding: 4px;padding-left: 4px;padding-right: 4px;">New Note</button>
               </div>
             <div style="display: flex; flex-direction: column; width: 70%;">
-              <input type="text" id="noteTitleInput" placeholder="Title...">
-                <div id="notesContent" contenteditable="true" style="overflow-y: auto;">
+              <input type="text" id="noteTitleInput" style="text-align: center;border-radius: 8px;border-width: 1px;" placeholder="Title...">
+                <div id="notesContent" contenteditable="true">
                 </div>
-                  <button onclick="saveCurrentNote()" style="position: absolute; bottom: 10px; right: 10px; z-index: 10; font-size: medium;background-color: rgb(133, 103, 63);border-radius: 12px;">Save Note</button>
+                  <button onclick="saveCurrentNote()" style="position: absolute; bottom: 10px; right: 10px; z-index: 10; font-size: small;background-color: rgb(203, 164, 114);border-radius: 12px;border-width: 1px;padding: 4px;padding-left: 4px;padding-right: 4px;">Save Note</button>
             </div>
           </div>
       </div>
     </div>
     <div>
       <div id="wikipedia" class="window">
-        <div id="wikipediaHeader" class="windowHeader" >
-          <pre></pre>
-          <p style="margin: 0px;margin-top: 4px;">Welcome!</p>
-          <div id="wikipediaClose" class="windowClose">X</div>
-        </div>
-        <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
+          <div id="wikipediaHeader" class="windowHeader" >
+            <pre></pre>
+            <p style="margin: 0px;margin-top: 4px;">Welcome!</p>
+            <div id="wikipediaClose" class="windowClose">X</div>
+          </div>
+          <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
         <iframe id="wikipediaFrame" src="https://www.wikipedia.org?printable=yes" title="Wikipedia"></iframe>
       </div>
     <div>
@@ -112,18 +114,20 @@
           <div id="musicClose" class="windowClose">X</div>
         </div>
         <hr style="margin: 4px; margin-top: 6px; background-color: burlywood; margin-left: 0px;margin-right: 0px;">
-        <div id="musicApp" style="display: flex;flex-direction: column;flex: 1;">
-          <div style="display: flex;flex-direction: row;justify-content: space-between;">
-            <img id="albumArt" src="./images/default.webp" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 10px;align-self: flex-start;">
-            <div style="display: flex;flex-direction: column;align-self: center;">
-              <p style="font-weight: bold; margin: 0;height: min-content;">Lo-fi Beats</p>
-              <p style="font-size: 12px;margin: 0;height: min-content;justify-self: flex-end;">Massobeats</p>
+        <div id="musicApp" style="display: grid;grid-template-rows: 1fr 2fr;">
+          <div style="display: grid;grid-template-columns: 50% 50%;align-items: center;">
+            <img id="albumArt" src="./images/default.webp" style="width: 80px; height: 80px; border-radius: 8px;">
+            <div style="display: flex;flex-direction: column;align-self: center;justify-self: flex-end;">
+              <p style="font-weight: bold; margin: 0;height: min-content;justify-self: flex-end;">Lo-fi Beats</p>
+              <p style="font-size: 12px;margin: 0;height: min-content;justify-self: center;">Massobeats</p>
             </div>
           </div>
-          <audio id="musicPlayer" controls>
-            <source src="./music/City_Massobeats.mp3" type="audio/mpeg">
-          </audio>
-          <div id="musicContainer">
+          <div>
+            <audio id="musicPlayer" controls>
+              <source src="./music/City_Massobeats.mp3" type="audio/mpeg">
+            </audio>
+            <div id="musicContainer">
+            </div>
           </div>
         </div>
       </div>
