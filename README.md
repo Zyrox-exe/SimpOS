@@ -6,7 +6,6 @@ A minimalist and modern web operating system designed for simplicity and efficie
 
 ## Features
 
-* **Minimalist UI:** Uncluttered workspace to help you focus on what matters.
 * **Web-Native:** Built entirely from scratch without heavy frameworks.
 * **Interactive Components:** Features a fully working desktop environment with apps.
 * **Window Resizability:** Have resizable app windows
